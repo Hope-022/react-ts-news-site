@@ -18,4 +18,4 @@ export const CATEGORIES: Category[] = [
     {slug: "continuation-from-print", label: "Continuation From Print" },
 ];
 
-export const RADIO_LINK = {slug: "radio", label: "Radio"};
+export const RADIO_LINK = {slug: "radio", label: "Radio"}; 
