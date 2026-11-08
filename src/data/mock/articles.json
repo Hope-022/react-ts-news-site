@@ -1,0 +1,32 @@
+[
+  {
+    "id": "1",
+    "slug": "senate-passes-electoral-reform-bill",
+    "title": "Senate passes new electoral reform bill after marathon session",
+    "excerpt": "Lawmakers voted 78-12 in favour of amendments targeting diaspora voting and result transmission.",
+    "body": "The Senate on Thursday passed the long-awaited Electoral Act Amendment Bill, clearing a path for diaspora Nigerians to vote in future elections and setting stricter deadlines for result transmission.",
+    "category": "news",
+    "author": "Ada Okafor",
+    "publishedAt": "2026-09-12T09:00:00Z"
+  },
+  {
+    "id": "2",
+    "slug": "super-eagles-name-squad-world-cup-qualifiers",
+    "title": "Super Eagles name squad for World Cup qualifiers",
+    "excerpt": "Coach announces 24-man squad ahead of next month's decisive qualifying matches.",
+    "body": "The Super Eagles technical crew has released the list of players invited for the upcoming World Cup qualifiers, with three uncapped players making the cut for the first time.",
+    "category": "sports",
+    "author": "Tunde Bakare",
+    "publishedAt": "2026-09-12T07:30:00Z"
+  },
+  {
+    "id": "3",
+    "slug": "flood-alert-coastal-states",
+    "title": "Flood alert issued for coastal states as rains intensify",
+    "excerpt": "Meteorological agency warns residents in low-lying areas to relocate temporarily.",
+    "body": "The Nigerian Meteorological Agency has issued a red alert for several coastal states as intensifying rainfall raises the risk of flash flooding over the next 72 hours.",
+    "category": "metro-plus",
+    "author": "Grace Effiong",
+    "publishedAt": "2026-09-11T18:00:00Z"
+  }
+]

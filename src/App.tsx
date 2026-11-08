@@ -1,14 +1,15 @@
-import { useState } from 'react'
-import heroImg from './assets/hero.png'
-import reactLogo from './assets/react.svg'
-import viteLogo from './assets/vite.svg'
-import './App.css'
+import { Header } from "./components/layout/Header";
+import { CategoryNav } from "./components/layout/CategoryNav";
+import { TopBar } from "./components/layout/TopBar";
 
 function App() {
-
-  return ( 
-    <h1 className="text-3xl font-bold text-red-600">Tailwind is working</h1>
-  )
+    return(
+        <div>
+             <TopBar />
+            <Header />
+            <CategoryNav activeSlug="home"/>
+        </div>
+    );
 }
 
-export default App
+export default App;
