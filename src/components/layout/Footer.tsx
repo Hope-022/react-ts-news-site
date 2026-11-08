@@ -1,5 +1,7 @@
 import { SITE_NAME, SITE_TAGLINE } from "../../config/site";
 import { CATEGORIES, RADIO_LINK } from "../../config/categories";
+import { Link } from "react-router";
+import { pathForCategory } from "../../utils/paths";
 
 export function Footer() {
   const year = new Date().getFullYear();
@@ -11,9 +13,9 @@ export function Footer() {
 
       <nav className="grid grid-cols-2 md:grid-cols-4 gap-x-6 gap-y-2 mt-8 text-sm text-green-50">
         {[...CATEGORIES, RADIO_LINK].map((item) => (
-          <a key={item.slug} href="#">
+          <Link key={item.slug} to={pathForCategory(item.slug)}>
             {item.label}
-          </a>
+          </Link>
         ))}
       </nav>
 

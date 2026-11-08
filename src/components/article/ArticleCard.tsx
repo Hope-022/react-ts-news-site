@@ -1,14 +1,14 @@
 import type { Article } from "../../types/articles";
-import { CATEGORIES } from "../../config/categories";
 import { timeAgo } from "../../utils/timeAgo";
+import { Link } from "react-router"; 
+import { getCategoryLabel } from "../../config/categories";
 
 interface ArticleCardProps {
   article: Article;
 }
 
 export function ArticleCard({ article }: ArticleCardProps) {
-  const categoryLabel =
-    CATEGORIES.find((c) => c.slug === article.category)?.label ?? article.category;
+  const categoryLabel = getCategoryLabel(article.category);
 
   return (
     <article className="flex flex-col gap-2">
@@ -22,7 +22,11 @@ export function ArticleCard({ article }: ArticleCardProps) {
         <div className="h-36 rounded-lg bg-gray-100" />
       )}
       <span className="text-xs font-bold uppercase text-red-600">{categoryLabel}</span>
-      <h3 className="text-base font-semibold leading-snug">{article.title}</h3>
+<h3 className="text-base font-semibold leading-snug">
+  <Link to={`/article/${article.slug}`} className="hover:underline">
+    {article.title}
+  </Link>
+</h3>
       <p className="text-xs text-gray-500">{timeAgo(article.publishedAt)}</p>
     </article>
   );

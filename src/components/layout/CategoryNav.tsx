@@ -1,10 +1,13 @@
 import { CATEGORIES, RADIO_LINK, type Category } from "../../config/categories";
+import { Link } from "react-router";
+import { pathForCategory } from "../../utils/paths";
+
 
 interface CategoryNavProps {
   activeSlug?: string;
 }
 
-export function CategoryNav({ activeSlug = "home" }: CategoryNavProps) {
+export function CategoryNav({ activeSlug }: CategoryNavProps) {
   const allItems: Category[] = [
     { slug: "home", label: "Home" },
     ...CATEGORIES,
@@ -15,9 +18,9 @@ export function CategoryNav({ activeSlug = "home" }: CategoryNavProps) {
     <nav className="relative border-b border-gray-200">
       <div className="flex gap-5 overflow-x-auto whitespace-nowrap px-4 py-2.5 snap-x snap-mandatory md:overflow-visible md:flex-wrap md:gap-6">
         {allItems.map((item) => (
-          <a
+          <Link
             key={item.slug}
-            href="#"
+            to={pathForCategory(item.slug)}
             aria-current={item.slug === activeSlug ? "page" : undefined}
             className={`snap-start text-xs font-semibold uppercase tracking-wide pb-1 border-b-2 ${
               item.slug === activeSlug
@@ -26,7 +29,7 @@ export function CategoryNav({ activeSlug = "home" }: CategoryNavProps) {
             }`}
           >
             {item.label}
-          </a>
+          </Link>
         ))}
       </div>
       <div className="pointer-events-none absolute right-0 top-0 h-full w-10 bg-gradient-to-l from-white to-transparent md:hidden" />

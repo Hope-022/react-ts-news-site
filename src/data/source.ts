@@ -5,8 +5,9 @@ export async function getArticles(): Promise<Article[]> {
   return mockArticles as Article[];
 }
 
-export async function getArticleBySlug(slug: string): Promise<Article | undefined> {
-  return mockArticles.find((a) => a.slug === slug) as Article | undefined;
+export async function getArticleBySlug(slug: string): Promise<Article | null> {
+  const found = (mockArticles as Article[]).find((a) => a.slug === slug);
+  return found ?? null;
 }
 
 export async function getArticlesByCategory(category: string): Promise<Article[]> {

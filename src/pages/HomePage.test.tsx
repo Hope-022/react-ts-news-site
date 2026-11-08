@@ -1,27 +1,16 @@
-import { render, screen } from "@testing-library/react";
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { screen } from "@testing-library/react";
 import { describe, it, expect } from "vitest";
 import { HomePage } from "./HomePage";
-
-function renderPage() {
-  const client = new QueryClient({
-    defaultOptions: { queries: { retry: false } },
-  });
-  render(
-    <QueryClientProvider client={client}>
-      <HomePage />
-    </QueryClientProvider>
-  );
-}
+import { renderWithProviders } from "../test/renderWithProviders";
 
 describe("HomePage", () => {
   it("shows a loading message first", () => {
-    renderPage();
+    renderWithProviders(<HomePage />);
     expect(screen.getByText(/loading stories/i)).toBeInTheDocument();
   });
 
   it("then shows the lead story from the data layer", async () => {
-    renderPage();
+    renderWithProviders(<HomePage />);
     expect(
       await screen.findByText(/Senate passes new electoral reform bill/i)
     ).toBeInTheDocument();

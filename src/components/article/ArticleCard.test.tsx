@@ -1,7 +1,8 @@
-import { render, screen } from "@testing-library/react";
+import { screen } from "@testing-library/react";
 import { describe, it, expect } from "vitest";
 import { ArticleCard } from "./ArticleCard";
 import type { Article } from "../../types/article";
+import { renderWithProviders } from "../../test/renderWithProviders";
 
 const sample: Article = {
   id: "t1",
@@ -16,13 +17,13 @@ const sample: Article = {
 
 describe("ArticleCard", () => {
   it("shows the title and the readable category label", () => {
-    render(<ArticleCard article={sample} />);
+    renderWithProviders(<ArticleCard article={sample} />);
     expect(screen.getByText("A test headline")).toBeInTheDocument();
     expect(screen.getByText("Sports")).toBeInTheDocument();
   });
 
   it("shows a relative time", () => {
-    render(<ArticleCard article={sample} />);
+    renderWithProviders(<ArticleCard article={sample} />);
     expect(screen.getByText(/ago$/)).toBeInTheDocument();
   });
 });
