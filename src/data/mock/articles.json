@@ -28,5 +28,65 @@
     "category": "metro-plus",
     "author": "Grace Effiong",
     "publishedAt": "2026-09-11T18:00:00Z"
+  },
+    {
+    "id": "4",
+    "slug": "sprinter-breaks-national-record-lagos",
+    "title": "Sprinter breaks 20-year national record in Lagos",
+    "excerpt": "The 23-year-old shaved two-tenths of a second off the previous mark.",
+    "body": "A crowd at the National Stadium watched the young sprinter cross the line in a record-breaking time, ending a 20-year wait for a new national best.",
+    "category": "sports",
+    "author": "Tunde Bakare",
+    "publishedAt": "2026-09-12T05:00:00Z"
+  },
+  {
+    "id": "5",
+    "slug": "local-derby-ends-late-equaliser",
+    "title": "Local derby ends in dramatic late equaliser",
+    "excerpt": "A stoppage-time header kept the points shared in front of a packed stadium.",
+    "body": "The much-awaited derby ended level after a header in the 93rd minute cancelled out what looked like a winning goal for the home side.",
+    "category": "sports",
+    "author": "Tunde Bakare",
+    "publishedAt": "2026-09-11T20:00:00Z"
+  },
+  {
+    "id": "6",
+    "slug": "dtigers-finalise-roster-afrobasket",
+    "title": "D'Tigers finalise roster ahead of AfroBasket",
+    "excerpt": "Coach cuts the squad to 12 after a week-long training camp.",
+    "body": "The national basketball team has announced its final 12-man roster for the upcoming continental tournament following a competitive training camp.",
+    "category": "sports",
+    "author": "Ife Adeyemi",
+    "publishedAt": "2026-09-11T14:00:00Z"
+  },
+  {
+    "id": "7",
+    "slug": "health-ministry-free-malaria-screening",
+    "title": "Health ministry launches free malaria screening drive",
+    "excerpt": "Mobile clinics will visit 200 communities over the next six weeks.",
+    "body": "The Federal Ministry of Health has begun a nationwide malaria screening programme, offering free tests and treatment at mobile clinics in underserved communities.",
+    "category": "healthwise",
+    "author": "Grace Effiong",
+    "publishedAt": "2026-09-11T10:00:00Z"
+  },
+  {
+    "id": "8",
+    "slug": "naira-firms-cbn-forex-policy",
+    "title": "Naira firms against dollar as CBN unveils new forex policy",
+    "excerpt": "Analysts say the new rules could narrow the gap between official and parallel rates.",
+    "body": "The Central Bank of Nigeria has announced changes to foreign exchange rules, a move that helped the naira gain ground against the dollar in early trading.",
+    "category": "news",
+    "author": "Ada Okafor",
+    "publishedAt": "2026-09-10T16:00:00Z"
+  },
+  {
+    "id": "9",
+    "slug": "lagos-commuters-rail-repairs-delays",
+    "title": "Lagos commuters face delays as rail repairs begin",
+    "excerpt": "Authorities advise alternative routes during the two-week repair window.",
+    "body": "Commuters on the busiest rail corridor in Lagos should expect longer travel times as engineers begin scheduled repairs on a damaged stretch of track.",
+    "category": "metro-plus",
+    "author": "Grace Effiong",
+    "publishedAt": "2026-09-10T08:00:00Z"
   }
 ]

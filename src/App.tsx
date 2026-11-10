@@ -5,6 +5,7 @@ import { CategoryNav } from "./components/layout/CategoryNav";
 import { Footer } from "./components/layout/Footer";
 import { HomePage } from "./pages/HomePage";
 import { ArticlePage } from "./pages/ArticlePage";
+import { CategoryPage } from "./pages/CategoryPage";
 
 function getActiveSlug(pathname: string): string | undefined {
   if (pathname === "/") return "home";
@@ -24,6 +25,7 @@ function App() {
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/article/:slug" element={<ArticlePage />} />
+        <Route path="/category/:slug" element={<CategoryPage />} />
         <Route path="*" element={<p className="p-6">Page not found.</p>} />
       </Routes>
       <Footer />

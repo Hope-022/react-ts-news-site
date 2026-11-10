@@ -20,7 +20,7 @@ export function HomePage() {
           <h2 className="border-b border-gray-200 pb-2 text-xs font-bold uppercase text-gray-500">
             Latest
           </h2>
-          {rest.map((article) => (
+          {rest.slice(0, 4).map((article) => (
             <ArticleCard key={article.id} article={article} />
           ))}
         </div>
