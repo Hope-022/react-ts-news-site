@@ -11,4 +11,12 @@ describe("Header", () => {
     expect(logo).toBeInTheDocument();
     expect(logo).toHaveAttribute("href", "/");
   });
+
+  it("has a search link that goes to the search page", () => {
+    renderWithProviders(<Header />);
+    expect(screen.getByRole("link", { name: "Search" })).toHaveAttribute(
+      "href",
+      "/search"
+    );
+  });
 });

@@ -1,4 +1,4 @@
-import type { Article } from "../../types/articles";
+import type { Article } from "../../types/article";
 import { timeAgo } from "../../utils/timeAgo";
 import { Link } from "react-router"; 
 import { getCategoryLabel } from "../../config/categories";
