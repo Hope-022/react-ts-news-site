@@ -8,4 +8,5 @@ export interface Article {
   author: string;
   publishedAt: string;
   imageUrl?: string;
+  breaking?: boolean;
 }

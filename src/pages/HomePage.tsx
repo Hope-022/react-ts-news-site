@@ -1,30 +1,52 @@
 import { useArticles } from "../hooks/useArticles";
-import { ArticleCard } from "../components/article/ArticleCard";
+import { BreakingTicker } from "../components/layout/BreakingTicker";
+import { HeroStory } from "../components/article/HeroStory";
+import { ArticleListItem } from "../components/article/ArticleListItem";
+import { CategorySection } from "../components/article/CategorySection";
+import { HOME_SECTIONS, SITE_NAME } from "../config/site";
+import { sortNewestFirst } from "../utils/sortNewestFirst";
 
 export function HomePage() {
-  const { data: articles, isLoading, isError } = useArticles();
+  const { data, isLoading, isError } = useArticles();
 
   if (isLoading) return <p className="p-4">Loading stories...</p>;
-  if (isError || !articles) return <p className="p-4 text-red-600">Could not load stories.</p>;
-  if (articles.length === 0) return <p className="p-4">No stories yet.</p>;
+  if (isError || !data) return <p className="p-4 text-red-600">Could not load stories.</p>;
+  if (data.length === 0) return <p className="p-4">No stories yet.</p>;
 
+  const articles = sortNewestFirst(data);
   const [lead, ...rest] = articles;
+  const breaking = articles.find((a) => a.breaking);
 
   return (
-    <main className="mx-auto max-w-6xl px-4 py-6">
-      <section className="grid gap-6 md:grid-cols-3">
-        <div className="md:col-span-2">
-          <ArticleCard article={lead} />
-        </div>
-        <div className="flex flex-col gap-4">
-          <h2 className="border-b border-gray-200 pb-2 text-xs font-bold uppercase text-gray-500">
-            Latest
-          </h2>
-          {rest.slice(0, 4).map((article) => (
-            <ArticleCard key={article.id} article={article} />
-          ))}
-        </div>
-      </section>
-    </main>
+    <>
+      <BreakingTicker article={breaking} />
+      <main className="mx-auto max-w-6xl px-4 py-6">
+        <h1 className="sr-only">{SITE_NAME}: latest news</h1>
+        <section className="grid gap-6 md:grid-cols-3">
+          <div className="md:col-span-2">
+            <HeroStory article={lead} />
+          </div>
+          <div>
+            <h2 className="border-b border-gray-200 pb-2 text-xs font-bold uppercase text-gray-500">
+              Latest
+            </h2>
+            <ul className="divide-y divide-gray-100">
+              {rest.slice(0, 5).map((article) => (
+                <li key={article.id}>
+                  <ArticleListItem article={article} />
+                </li>
+              ))}
+            </ul>
+          </div>
+        </section>
+        {HOME_SECTIONS.map((slug) => (
+          <CategorySection
+            key={slug}
+            slug={slug}
+            articles={articles.filter((a) => a.category === slug)}
+          />
+        ))}
+      </main>
+    </>
   );
 }

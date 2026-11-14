@@ -76,6 +76,7 @@
     "excerpt": "Analysts say the new rules could narrow the gap between official and parallel rates.",
     "body": "The Central Bank of Nigeria has announced changes to foreign exchange rules, a move that helped the naira gain ground against the dollar in early trading.",
     "category": "news",
+    "breaking": true,
     "author": "Ada Okafor",
     "publishedAt": "2026-09-10T16:00:00Z"
   },
