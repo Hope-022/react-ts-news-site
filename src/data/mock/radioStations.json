@@ -1,0 +1,11 @@
+[
+  { "id": "1", "name": "Naija Wire Radio", "frequency": "94.1", "city": "Lagos", "state": "Lagos", "streamUrl": "" },
+  { "id": "2", "name": "Capital Beat FM", "frequency": "104.5", "city": "Abuja", "state": "FCT", "streamUrl": "" },
+  { "id": "3", "name": "Garden City Radio", "frequency": "91.7", "city": "Port Harcourt", "state": "Rivers", "streamUrl": "" },
+  { "id": "4", "name": "Northern Pulse FM", "frequency": "89.5", "city": "Kano", "state": "Kano", "streamUrl": "" },
+  { "id": "5", "name": "Ibadan Sunrise FM", "frequency": "102.9", "city": "Ibadan", "state": "Oyo", "streamUrl": "" },
+  { "id": "6", "name": "Enugu Highlands FM", "frequency": "95.1", "city": "Enugu", "state": "Enugu", "streamUrl": "" },
+  { "id": "7", "name": "Kaduna Central FM", "frequency": "101.7", "city": "Kaduna", "state": "Kaduna", "streamUrl": "" },
+  { "id": "8", "name": "Lagos City Beat", "frequency": "99.3", "city": "Ikeja", "state": "Lagos", "streamUrl": "" },
+  { "id": "9", "name": "Ogene FM", "frequency": "98.3", "city": "Enugwu-Ukwu", "state": "Anambra", "streamUrl": "https://stream.zeno.fm/dyhysr4afc9uv/stream" }
+]

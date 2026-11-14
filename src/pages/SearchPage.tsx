@@ -1,23 +1,15 @@
-import { useState, type ChangeEvent, type ReactNode } from "react";
-import { useSearchParams } from "react-router";
+import type { ChangeEvent, ReactNode } from "react";
 import { ArticleCard } from "../components/article/ArticleCard";
-import { useDebouncedValue } from "../hooks/useDebouncedValue";
 import { useSearchArticles } from "../hooks/useSearchArticles";
+import { useUrlQuery } from "../hooks/useUrlQuery";
 
 export function SearchPage() {
-  const [searchParams, setSearchParams] = useSearchParams();
-  const [text, setText] = useState(searchParams.get("q") ?? "");
-  const query = useDebouncedValue(text.trim(), 300);
+  const { text, query, setSearchText, isWaiting } = useUrlQuery();
   const { data: results, isLoading, isError } = useSearchArticles(query);
 
   function handleChange(event: ChangeEvent<HTMLInputElement>) {
-    const value = event.target.value;
-    setText(value);
-    const trimmed = value.trim();
-    setSearchParams(trimmed ? { q: trimmed } : {}, { replace: true });
+    setSearchText(event.target.value);
   }
-
-  const isWaiting = text.trim() !== query;
 
   let content: ReactNode;
   if (text.trim() === "") {
