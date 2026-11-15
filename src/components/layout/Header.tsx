@@ -1,4 +1,4 @@
-import { Search, Menu } from "lucide-react";
+import { Bookmark, Search, Menu } from "lucide-react";
 import { SITE_NAME } from "../../config/site";
 import { Link } from "react-router";
 
@@ -8,6 +8,11 @@ export function Header() {
       <Link to="/" className="text-2xl font-medium tracking-wide">
         {SITE_NAME}
       </Link>
+
+      <Link to="/saved" aria-label="Saved stories" className="hover:text-green-800">
+  <Bookmark size={20} />
+</Link>
+
       <div className="flex items-center gap-4 text-gray-600">
         <Link to="/search" aria-label="Search" className="hover:text-green-800">
           <Search size={20} />

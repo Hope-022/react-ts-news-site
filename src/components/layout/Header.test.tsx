@@ -19,4 +19,9 @@ describe("Header", () => {
       "/search"
     );
   });
+
+    it("has a link to saved stories", () => {
+    renderWithProviders(<Header />);
+    expect(screen.getByRole("link", { name: "Saved stories" })).toHaveAttribute("href", "/saved");
+  });
 });

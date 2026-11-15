@@ -2,11 +2,13 @@ import { Link, useParams } from "react-router";
 import { useArticle } from "../hooks/useArticle";
 import { getCategoryLabel } from "../config/categories";
 import { timeAgo } from "../utils/timeAgo";
+import { BookmarkButton } from "../components/article/BookmarkButton";
+import { useBookmarks } from "../hooks/useBookmarks";
 
 export function ArticlePage() {
   const { slug } = useParams();
   const { data: article, isLoading, isError } = useArticle(slug);
-
+  const { isSaved, toggle } = useBookmarks();
   if (isLoading) return <p className="p-4">Loading story...</p>;
   if (isError) return <p className="p-4 text-red-600">Could not load this story.</p>;
   if (!article) {
@@ -30,9 +32,15 @@ export function ArticlePage() {
       </span>
       <h1 className="mt-1 text-3xl font-bold leading-tight">{article.title}</h1>
       <p className="mt-3 text-lg text-gray-600">{article.excerpt}</p>
-      <p className="mt-4 border-y border-gray-200 py-3 text-sm text-gray-500">
-        By {article.author} · {timeAgo(article.publishedAt)}
-      </p>
+    <div className="mt-4 flex items-center justify-between border-y border-gray-200 py-3">
+  <p className="text-sm text-gray-500">
+    By {article.author} · {timeAgo(article.publishedAt)}
+  </p>
+  <BookmarkButton
+    isSaved={isSaved(article.slug)}
+    onToggle={() => toggle(article.slug)}
+  />
+</div>
       <div className="mt-6 h-64 rounded-lg bg-gray-100" />
       <p className="mt-6 leading-relaxed">{article.body}</p>
     </main>

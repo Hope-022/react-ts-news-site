@@ -3,11 +3,13 @@ import { TopBar } from "./components/layout/TopBar";
 import { Header } from "./components/layout/Header";
 import { CategoryNav } from "./components/layout/CategoryNav";
 import { Footer } from "./components/layout/Footer";
+import { BottomNav } from "./components/layout/BottomNav";
 import { HomePage } from "./pages/HomePage";
 import { ArticlePage } from "./pages/ArticlePage";
 import { CategoryPage } from "./pages/CategoryPage";
 import { SearchPage } from "./pages/SearchPage";
 import { RadioPage } from "./pages/RadioPage";
+import { SavedPage } from "./pages/SavedPage";
 
 function getActiveSlug(pathname: string): string | undefined {
   if (pathname === "/") return "home";
@@ -20,7 +22,7 @@ function App() {
   const { pathname } = useLocation();
 
   return (
-    <div>
+    <div className="pb-14 md:pb-0">
       <TopBar />
       <Header />
       <CategoryNav activeSlug={getActiveSlug(pathname)} />
@@ -30,9 +32,11 @@ function App() {
         <Route path="/category/:slug" element={<CategoryPage />} />
         <Route path="/search" element={<SearchPage />} />
         <Route path="/radio" element={<RadioPage />} />
+        <Route path="/saved" element={<SavedPage />} />
         <Route path="*" element={<p className="p-6">Page not found.</p>} />
       </Routes>
       <Footer />
+      <BottomNav />
     </div>
   );
 }
