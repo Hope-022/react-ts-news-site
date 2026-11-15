@@ -13,7 +13,7 @@ export function RadioPlayer({ station, onClose }: RadioPlayerProps) {
     <div
       role="region"
       aria-label="Radio player"
-      className="fixed inset-x-0 bottom-0 border-t border-green-700 bg-green-900 px-4 py-3 text-white"
+      className="fixed inset-x-0 bottom-14 z-30 border-t border-green-700 bg-green-900 px-4 py-3 text-white md:bottom-0"
     >
       <div className="mx-auto flex max-w-6xl flex-wrap items-center gap-4">
         <div className="flex-1">
@@ -29,18 +29,18 @@ export function RadioPlayer({ station, onClose }: RadioPlayerProps) {
           src={station.streamUrl}
           onError={() => setHasError(true)}
           onPlaying={() => setHasError(false)}
-          className="h-10"
+          className="h-10 w-full md:w-auto"
         />
         <button type="button" onClick={onClose} className="text-sm underline">
           Close
         </button>
       </div>
-    {hasError && (
-  <p role="alert" className="mx-auto mt-2 max-w-6xl text-sm text-red-200">
-    Sorry, this station isn't available right now. Please try again later or
-    pick another station.
-  </p>
-)}
+      {hasError && (
+        <p role="alert" className="mx-auto mt-2 max-w-6xl text-sm text-red-200">
+          Sorry, this station isn't available right now. Please try again later or
+          pick another station.
+        </p>
+      )}
     </div>
   );
 }
