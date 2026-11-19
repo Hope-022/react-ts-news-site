@@ -1,14 +1,13 @@
-import { useState, type ChangeEvent, type ReactNode } from "react";
+import type { ChangeEvent, ReactNode } from "react";
 import { StationCard } from "../components/radio/StationCard";
-import { RadioPlayer } from "../components/radio/RadioPlayer";
+import { useRadio } from "../context/radioContext";
 import { useRadioStations } from "../hooks/useRadioStations";
 import { useUrlQuery } from "../hooks/useUrlQuery";
-import type { RadioStation } from "../types/radioStation";
 
 export function RadioPage() {
   const { text, query, setSearchText, isWaiting } = useUrlQuery();
   const { data: stations, isLoading, isError } = useRadioStations(query);
-  const [playing, setPlaying] = useState<RadioStation | null>(null);
+  const { current, play } = useRadio();
 
   function handleChange(event: ChangeEvent<HTMLInputElement>) {
     setSearchText(event.target.value);
@@ -32,8 +31,8 @@ export function RadioPage() {
           <StationCard
             key={station.id}
             station={station}
-            isPlaying={playing?.id === station.id}
-            onPlay={setPlaying}
+            isPlaying={current?.id === station.id}
+            onPlay={play}
           />
         ))}
       </div>
@@ -41,7 +40,7 @@ export function RadioPage() {
   }
 
   return (
-    <main className={`mx-auto max-w-6xl px-4 py-6 ${playing ? "pb-32" : ""}`}>
+    <main className="mx-auto max-w-6xl px-4 py-6">
       <h1 className="text-2xl font-bold">Radio</h1>
       <p className="mt-1 text-gray-600">Find and listen to stations across Nigeria.</p>
       <input
@@ -55,7 +54,6 @@ export function RadioPage() {
       <div className="mt-6" aria-live="polite">
         {content}
       </div>
-      {playing && <RadioPlayer key={playing.id} station={playing} onClose={() => setPlaying(null)} />}
     </main>
   );
 }

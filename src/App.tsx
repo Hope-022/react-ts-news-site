@@ -4,6 +4,8 @@ import { Header } from "./components/layout/Header";
 import { CategoryNav } from "./components/layout/CategoryNav";
 import { Footer } from "./components/layout/Footer";
 import { BottomNav } from "./components/layout/BottomNav";
+import { GlobalRadioPlayer } from "./components/radio/GlobalRadioPlayer";
+import { useRadio } from "./context/radioContext";
 import { HomePage } from "./pages/HomePage";
 import { ArticlePage } from "./pages/ArticlePage";
 import { CategoryPage } from "./pages/CategoryPage";
@@ -20,9 +22,10 @@ function getActiveSlug(pathname: string): string | undefined {
 
 function App() {
   const { pathname } = useLocation();
+  const { current } = useRadio();
 
   return (
-    <div className="pb-14 md:pb-0">
+    <div className={current ? "pb-52 md:pb-24" : "pb-14 md:pb-0"}>
       <TopBar />
       <Header />
       <CategoryNav activeSlug={getActiveSlug(pathname)} />
@@ -36,6 +39,7 @@ function App() {
         <Route path="*" element={<p className="p-6">Page not found.</p>} />
       </Routes>
       <Footer />
+      <GlobalRadioPlayer />
       <BottomNav />
     </div>
   );
